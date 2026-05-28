@@ -1,0 +1,27 @@
+# ─────────── Gestix 2.0 RPi — dependențe runtime ───────────
+# Pentru Raspberry Pi 4B (aarch64) cu Raspberry Pi OS
+
+# UI — instalează din apt pentru viteză:
+#   sudo apt install python3-pyqt5
+PyQt5>=5.15.0
+
+# Citire serial de la hub ESP32-C3
+pyserial>=3.5
+
+# Manipulare date
+numpy>=1.21.0
+
+# Runtime ML — UȘOR (doar inferență, fără antrenare)
+# Pentru modele dense/cnn1d (fără LSTM):
+tflite-runtime>=2.13.0
+# Dacă modelul are LSTM (Flex ops) → trebuie tensorflow complet în loc:
+#   pip install tensorflow-aarch64
+
+# STT — voce → text (offline, română)
+# faster-whisper e cel mai eficient pe RPi:
+faster-whisper>=1.0.0
+sounddevice>=0.4.6
+#   + backend audio: sudo apt install libportaudio2
+
+# TTS — text → voce (offline, română) — pentru faza viitoare
+# piper-tts>=1.2.0
